@@ -1,0 +1,85 @@
+name: Agent Proposal
+description: Propose a new agent for the shell-agents catalog.
+title: "[Proposal] <agent-name>: <one-line pitch>"
+labels: ["proposal", "needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for proposing an agent. Read [CONTRIBUTING §4](https://github.com/shell-agents/.github/blob/main/CONTRIBUTING.md#how-to-propose-a-new-agent) before filling this in. We respond within 7 days.
+
+  - type: input
+    id: name
+    attributes:
+      label: Agent name
+      description: lowercase, dot-separated, capability-first (e.g. `git.recover`, `k8s.tail`).
+      placeholder: e.g. git.recover
+    validations:
+      required: true
+
+  - type: input
+    id: pitch
+    attributes:
+      label: One-line pitch
+      placeholder: "Recovers lost git state from reflog."
+    validations:
+      required: true
+
+  - type: textarea
+    id: pain
+    attributes:
+      label: The pain
+      description: Who hits this, when, and what does it cost them today?
+    validations:
+      required: true
+
+  - type: textarea
+    id: why-separate
+    attributes:
+      label: Why a separate agent?
+      description: Why not a capability inside an existing shell-agents agent?
+    validations:
+      required: true
+
+  - type: textarea
+    id: capabilities
+    attributes:
+      label: Capabilities at v0.1
+      description: List each capability with declared blast radius. See SPEC §6.
+      placeholder: |
+        - `git.diagnose` — blast: none — read-only diagnosis
+        - `git.recover` — blast: medium — writes to reflog/refs
+    validations:
+      required: true
+
+  - type: dropdown
+    id: sandbox
+    attributes:
+      label: Sandbox tier
+      description: See SAFETY §4.
+      options:
+        - required
+        - recommended
+        - optional
+    validations:
+      required: true
+
+  - type: textarea
+    id: maintainer
+    attributes:
+      label: Maintainer commitment
+      description: Who maintains this for the next 12 months? GitHub handles welcome.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: agreements
+    attributes:
+      label: Agreements
+      options:
+        - label: I have read MANIFESTO, AGENT_SPEC, SAFETY, and CONTRIBUTING.
+          required: true
+        - label: I will license under Apache-2.0 and DCO-sign my commits.
+          required: true
+        - label: I will declare blast radius honestly.
+          required: true
