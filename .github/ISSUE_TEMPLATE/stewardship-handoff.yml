@@ -1,0 +1,26 @@
+name: Stewardship handoff
+description: You can't maintain a shell-agents repo anymore. File this so we can find a new home or archive cleanly.
+title: "[Handoff] <repo>"
+labels: ["stewardship"]
+body:
+  - type: input
+    id: repo
+    attributes:
+      label: Which repo?
+    validations: { required: true }
+
+  - type: textarea
+    id: state
+    attributes:
+      label: Current state
+      description: Open PRs, known bugs, anything in flight.
+
+  - type: dropdown
+    id: ask
+    attributes:
+      label: What would you like to happen?
+      options:
+        - Find a new maintainer
+        - Archive the repo
+        - Either is fine
+    validations: { required: true }

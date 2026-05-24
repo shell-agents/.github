@@ -1,0 +1,27 @@
+name: Feature request
+description: Propose a feature in an existing shell-agents repo. (For new agents, use Agent Proposal.)
+title: "[Feature] <repo>: <short description>"
+labels: ["enhancement"]
+body:
+  - type: input
+    id: repo
+    attributes:
+      label: Which repo?
+    validations: { required: true }
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What user pain motivates this?
+    validations: { required: true }
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
